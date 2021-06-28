@@ -6,3 +6,13 @@ build
 
 # Ignore macOS specific files
 .DS_Store
+
+# Ignore resources used for testing
+resources
+
+# Ignore miscellanous directories
+.settings
+
+# Ignore other miscellaneous files
+.classpath
+.project

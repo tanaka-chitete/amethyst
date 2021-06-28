@@ -21,14 +21,13 @@ public class Amethyst extends JFrame {
     private       String            url;
 
     public Amethyst() {
-        // Configure frame
+        // Construct frame
         super("Amethyst");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 900);
+        setSize(1080, 720);
         setLayout(null);
         setResizable(false);
         setLocationRelativeTo(null);
-        setVisible(true);
 
         // Configure filename text field
         filenameTextField = new JTextField();
@@ -85,6 +84,9 @@ public class Amethyst extends JFrame {
         syntaxErrorDialog.add(new JLabel("Invalid query"));
         syntaxErrorDialog.setSize(200, 100);
         syntaxErrorDialog.add(syntaxErrorOkButton);
+
+        // Display GUI only once all components have been added to it
+        setVisible(true);
     }
 
     public JTextComponent getFilenameTextField() {

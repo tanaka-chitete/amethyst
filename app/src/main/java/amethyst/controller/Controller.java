@@ -23,7 +23,7 @@ public class Controller {
         view.getExecuteQueryButton().addActionListener(e -> executeQuery());
         view.getFileErrorOkButton().addActionListener(e -> view.getFileErrorDialog().setVisible(false));
         view.getSyntaxErrorOkButton().addActionListener(e -> view.getSyntaxErrorDialog().setVisible(false));
-    }
+    } 
 
     // Add default query to queryTextArea for selected table
     public void setDefaultQuery() {
