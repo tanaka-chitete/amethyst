@@ -1,11 +1,13 @@
 package amethyst.view;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+// import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
 import javax.xml.transform.Result;
 import java.awt.*;
 import java.sql.*;
+
+import amethyst.model.ResultTableModel;
 
 public class Amethyst extends JFrame {
     private final JTextComponent    filenameTextField;
@@ -63,11 +65,15 @@ public class Amethyst extends JFrame {
         executeQueryButton.setEnabled(false);
         add(executeQueryButton);
 
-        // Configure data table
-        resultTable = new JTable(new DefaultTableModel());
+        // Configure data table and associated scroll pane
+        resultTable = new JTable(new ResultTableModel());
         resultTable.setName("Table");
-        resultTable.setBounds(0, 500, 350, 350);
-        add(resultTable);
+        JScrollPane scrollPane = new JScrollPane(resultTable, 
+                                                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
+                                                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        resultTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        scrollPane.setBounds(50, 300, 350, 350);
+        add(scrollPane);
 
         // Configure file error dialog and ok button
         fileErrorDialog = new JDialog(this, "File Error", true);

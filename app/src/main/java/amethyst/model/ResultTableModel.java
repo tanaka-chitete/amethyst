@@ -28,6 +28,11 @@ public class ResultTableModel extends AbstractTableModel {
     }
 
     @Override
+    public String getColumnName(int column) {
+        return columns.get(column);
+    }
+
+    @Override
     public Object getValueAt(int row, int column) {
         return data.get(row).get(column);
     }

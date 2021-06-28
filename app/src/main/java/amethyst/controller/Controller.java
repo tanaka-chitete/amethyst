@@ -1,7 +1,7 @@
 package amethyst.controller;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+// import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.Vector;
 
 import amethyst.view.Amethyst;
+import amethyst.model.ResultTableModel;
 
 public class Controller {
     private final Amethyst view;
@@ -103,6 +104,6 @@ public class Controller {
             view.getSyntaxErrorDialog().setVisible(true);
         }
 
-        view.getResultTable().setModel(new DefaultTableModel(data, columns));
+        view.getResultTable().setModel(new ResultTableModel(data, columns));
     }
 }
