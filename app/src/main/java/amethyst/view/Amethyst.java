@@ -32,6 +32,7 @@ public class Amethyst extends JFrame {
         filenameTextField = new JTextField();
         filenameTextField.setName("FileNameTextField");
         filenameTextField.setBounds(10, 10, 955, 30);
+        filenameTextField.setFont(Fonts.ARCHIVO);
         add(filenameTextField);
 
         // Configure open database button
@@ -39,18 +40,21 @@ public class Amethyst extends JFrame {
         openDatabaseButton.setName("OpenFileButton");
         openDatabaseButton.setText("OPEN");
         openDatabaseButton.setBounds(970, 10, 100, 30);
+        openDatabaseButton.setFont(Fonts.ARCHIVO);
         add(openDatabaseButton);
 
         // Configure tables dropdown menu
         tablesComboBox = new JComboBox<String>();
         tablesComboBox.setName("TablesComboBox");
         tablesComboBox.setBounds(10, 45, 1_060, 30);
+        tablesComboBox.setFont(Fonts.ARCHIVO);
         add(tablesComboBox);
 
         // Configure query text area
         queryTextArea = new JTextArea();
         queryTextArea.setName("QueryTextArea");
         queryTextArea.setBounds(15, 80, 945, 270);
+        queryTextArea.setFont(Fonts.DM_MONO_REG);
         queryTextArea.setEnabled(false);
         add(queryTextArea);
 
@@ -59,12 +63,15 @@ public class Amethyst extends JFrame {
         executeQueryButton.setName("ExecuteQueryButton");
         executeQueryButton.setText("EXECUTE");
         executeQueryButton.setBounds(970, 80, 100, 270);
+        executeQueryButton.setFont(Fonts.ARCHIVO);
         executeQueryButton.setEnabled(false);
         add(executeQueryButton);
 
         // Configure data table and associated scroll pane
         resultTable = new JTable(new ResultTableModel());
         resultTable.setName("Table");
+        resultTable.setFont(Fonts.DM_MONO_SML);
+        resultTable.getTableHeader().setFont(Fonts.DM_MONO_SML);
         JScrollPane scrollPane = new JScrollPane(resultTable, 
                                                  JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
                                                  JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -74,18 +81,26 @@ public class Amethyst extends JFrame {
 
         // Configure file error dialog and ok button
         fileErrorDialog = new JDialog(this, "File Error", true);
-        fileErrorDialog.setLayout(new FlowLayout());
-        fileErrorOkButton = new JButton("OK");
-        fileErrorDialog.add(new JLabel("Invalid filename"));
         fileErrorDialog.setSize(200, 100);
+        fileErrorDialog.setLocationRelativeTo(null);
+        fileErrorDialog.setLayout(new FlowLayout());
+        JLabel fileErrorLabel = new JLabel("Invalid filename provided");
+        fileErrorLabel.setFont(Fonts.ARCHIVO);
+        fileErrorDialog.add(fileErrorLabel);
+        fileErrorOkButton = new JButton("OK");
+        fileErrorOkButton.setFont(Fonts.ARCHIVO);
         fileErrorDialog.add(fileErrorOkButton);
 
         // Configure syntax error dialog and ok button
         syntaxErrorDialog = new JDialog(this, "Syntax Error", true);
-        syntaxErrorDialog.setLayout(new FlowLayout());
-        syntaxErrorOkButton = new JButton("OK");
-        syntaxErrorDialog.add(new JLabel("Invalid query"));
         syntaxErrorDialog.setSize(200, 100);
+        syntaxErrorDialog.setLocationRelativeTo(null);
+        syntaxErrorDialog.setLayout(new FlowLayout());
+        JLabel syntaxErrorLabel = new JLabel("Invalid query entered");
+        syntaxErrorLabel.setFont(Fonts.ARCHIVO);
+        syntaxErrorDialog.add(syntaxErrorLabel);
+        syntaxErrorOkButton = new JButton("OK");
+        syntaxErrorOkButton.setFont(Fonts.ARCHIVO);
         syntaxErrorDialog.add(syntaxErrorOkButton);
 
         // Display GUI only once all components have been added to it

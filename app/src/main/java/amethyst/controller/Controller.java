@@ -108,7 +108,6 @@ public class Controller {
             }
         }
         catch (SQLException exc) { 
-            System.out.println(exc); // TODO: Delete
             view.getSyntaxErrorDialog().setVisible(true);
         }
     }
