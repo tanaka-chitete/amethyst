@@ -72,10 +72,8 @@ public class Amethyst extends JFrame {
         resultTable.setName("Table");
         resultTable.setFont(Fonts.DM_MONO_SML);
         resultTable.getTableHeader().setFont(Fonts.DM_MONO_SML);
-        JScrollPane scrollPane = new JScrollPane(resultTable, 
-                                                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
-                                                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        resultTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        JScrollPane scrollPane = new JScrollPane(resultTable);
+        resultTable.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
         scrollPane.setBounds(15, 360, 1_050, 320);
         add(scrollPane);
 
