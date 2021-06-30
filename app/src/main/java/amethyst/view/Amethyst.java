@@ -1,11 +1,8 @@
 package amethyst.view;
 
 import javax.swing.*;
-// import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
-import javax.xml.transform.Result;
 import java.awt.*;
-import java.sql.*;
 
 import amethyst.model.ResultTableModel;
 
