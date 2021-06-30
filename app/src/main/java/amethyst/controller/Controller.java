@@ -79,30 +79,37 @@ public class Controller {
         try (Connection con = DriverManager.getConnection(view.getUrl())){
             if (con.isValid(5)) {
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(view.getQueryTextArea().getText());
 
-                // Get names of columns
-                ResultSetMetaData rsmd = rs.getMetaData();
-                int columnCount = rsmd.getColumnCount();
+                ResultSet rs = null;
+                boolean isResultSet = stmt.execute(view.getQueryTextArea().getText());
+                // Query is a SELECT query (which returns a ResultSet object)
+                if (isResultSet) {
+                    rs = stmt.getResultSet();
 
-                for (int i = 1; i <= columnCount; i++) {
-                    columns.add(rsmd.getColumnName(i));
-                }
+                    // Get names of columns
+                    ResultSetMetaData rsmd = rs.getMetaData();
+                    int columnCount = rsmd.getColumnCount();
 
-                // Get each row of data
-                while (rs.next()) {
-                    Vector<Object> datum = new Vector<>();
                     for (int i = 1; i <= columnCount; i++) {
-                        datum.add(rs.getObject(i));
+                        columns.add(rsmd.getColumnName(i));
                     }
-                    data.add(datum);
-                }
+
+                    // Get each row of data
+                    while (rs.next()) {
+                        Vector<Object> datum = new Vector<>();
+                        for (int i = 1; i <= columnCount; i++) {
+                            datum.add(rs.getObject(i));
+                        }
+                        data.add(datum);
+                    }
+
+                    view.getResultTable().setModel(new ResultTableModel(data, columns));
+                } 
             }
         }
         catch (SQLException exc) { 
+            System.out.println(exc); // TODO: Delete
             view.getSyntaxErrorDialog().setVisible(true);
         }
-
-        view.getResultTable().setModel(new ResultTableModel(data, columns));
     }
 }
