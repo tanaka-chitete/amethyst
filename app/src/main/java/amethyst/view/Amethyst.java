@@ -21,7 +21,7 @@ public class Amethyst extends JFrame {
 
     public Amethyst() {
         // Construct frame
-        super("Amethyst");
+        super("Amethyst (2021.1)");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1_080, 720);
         setLayout(null);
