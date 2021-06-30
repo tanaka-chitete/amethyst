@@ -54,6 +54,7 @@ public class Amethyst extends JFrame {
         queryTextArea = new JTextArea();
         queryTextArea.setName("QueryTextArea");
         queryTextArea.setBounds(15, 80, 945, 270);
+        queryTextArea.setTabSize(4);
         queryTextArea.setFont(Fonts.DM_MONO_REG);
         queryTextArea.setEnabled(false);
         add(queryTextArea);
