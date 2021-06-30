@@ -26,7 +26,7 @@ public class Amethyst extends JFrame {
         // Construct frame
         super("Amethyst");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1080, 720);
+        setSize(1_080, 720);
         setLayout(null);
         setResizable(false);
         setLocationRelativeTo(null);
@@ -34,34 +34,34 @@ public class Amethyst extends JFrame {
         // Configure filename text field
         filenameTextField = new JTextField();
         filenameTextField.setName("FileNameTextField");
-        filenameTextField.setBounds(10, 10, 150, 50);
+        filenameTextField.setBounds(10, 10, 955, 30);
         add(filenameTextField);
 
         // Configure open database button
         openDatabaseButton = new JButton();
         openDatabaseButton.setName("OpenFileButton");
-        openDatabaseButton.setText("Open");
-        openDatabaseButton.setBounds(600, 10, 50, 50);
+        openDatabaseButton.setText("OPEN");
+        openDatabaseButton.setBounds(970, 10, 100, 30);
         add(openDatabaseButton);
 
         // Configure tables dropdown menu
         tablesComboBox = new JComboBox<String>();
         tablesComboBox.setName("TablesComboBox");
-        tablesComboBox.setBounds(10, 35, 150, 50);
+        tablesComboBox.setBounds(10, 45, 1_060, 30);
         add(tablesComboBox);
 
         // Configure query text area
         queryTextArea = new JTextArea();
         queryTextArea.setName("QueryTextArea");
-        queryTextArea.setBounds(10, 60, 200, 200);
+        queryTextArea.setBounds(15, 80, 945, 270);
         queryTextArea.setEnabled(false);
         add(queryTextArea);
 
         // Configure execute query button
         executeQueryButton = new JButton();
         executeQueryButton.setName("ExecuteQueryButton");
-        executeQueryButton.setText("Execute");
-        executeQueryButton.setBounds(600, 60, 60, 75);
+        executeQueryButton.setText("EXECUTE");
+        executeQueryButton.setBounds(970, 80, 100, 270);
         executeQueryButton.setEnabled(false);
         add(executeQueryButton);
 
@@ -72,7 +72,7 @@ public class Amethyst extends JFrame {
                                                  JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
                                                  JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         resultTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        scrollPane.setBounds(50, 300, 350, 350);
+        scrollPane.setBounds(15, 360, 1_050, 320);
         add(scrollPane);
 
         // Configure file error dialog and ok button
