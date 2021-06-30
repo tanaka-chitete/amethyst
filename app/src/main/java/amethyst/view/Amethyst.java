@@ -40,7 +40,7 @@ public class Amethyst extends JFrame {
         openDatabaseButton.setName("OpenFileButton");
         openDatabaseButton.setText("OPEN");
         openDatabaseButton.setBounds(970, 10, 100, 30);
-        openDatabaseButton.setFont(Fonts.ARCHIVO);
+        openDatabaseButton.setFont(Fonts.ARCHIVO_EXP);
         add(openDatabaseButton);
 
         // Configure tables dropdown menu
@@ -64,7 +64,7 @@ public class Amethyst extends JFrame {
         executeQueryButton.setName("ExecuteQueryButton");
         executeQueryButton.setText("EXECUTE");
         executeQueryButton.setBounds(970, 80, 100, 270);
-        executeQueryButton.setFont(Fonts.ARCHIVO);
+        executeQueryButton.setFont(Fonts.ARCHIVO_EXP);
         executeQueryButton.setEnabled(false);
         add(executeQueryButton);
 
@@ -87,7 +87,7 @@ public class Amethyst extends JFrame {
         fileErrorLabel.setFont(Fonts.ARCHIVO);
         fileErrorDialog.add(fileErrorLabel);
         fileErrorOkButton = new JButton("OK");
-        fileErrorOkButton.setFont(Fonts.ARCHIVO);
+        fileErrorOkButton.setFont(Fonts.ARCHIVO_EXP);
         fileErrorDialog.add(fileErrorOkButton);
 
         // Configure syntax error dialog and ok button
@@ -99,7 +99,7 @@ public class Amethyst extends JFrame {
         syntaxErrorLabel.setFont(Fonts.ARCHIVO);
         syntaxErrorDialog.add(syntaxErrorLabel);
         syntaxErrorOkButton = new JButton("OK");
-        syntaxErrorOkButton.setFont(Fonts.ARCHIVO);
+        syntaxErrorOkButton.setFont(Fonts.ARCHIVO_EXP);
         syntaxErrorDialog.add(syntaxErrorOkButton);
 
         // Display GUI only once all components have been added to it
