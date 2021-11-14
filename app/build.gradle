@@ -22,6 +22,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
+
+    implementation 'com.formdev:flatlaf:1.6.2'
 }
 
 application {
