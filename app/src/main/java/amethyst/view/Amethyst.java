@@ -60,8 +60,8 @@ public class Amethyst extends JFrame {
 
 
         JToolBar toolBar = new JToolBar();
-        JButton executeBtn = new JButton("Execute");
-        toolBar.add(executeBtn);
+        JButton runBtn = new JButton("Run");
+        toolBar.add(runBtn);
 
         JPanel bars = new JPanel();
         bars.setLayout(new BoxLayout(bars, BoxLayout.PAGE_AXIS));
