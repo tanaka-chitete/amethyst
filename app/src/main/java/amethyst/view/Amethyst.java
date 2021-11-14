@@ -42,16 +42,17 @@ public class Amethyst extends JFrame {
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
 
-        // JMenu aboutMenu = new JMenu("About");
-        // JMenuItem versionMenuItem = new JMenuItem("Version");
-        // JMenuItem developerMenuItem = new JMenuItem("Developer");
-        // aboutMenu.add(versionMenuItem);
-        // aboutMenu.add(developerMenuItem);        
+        JMenu aboutMenu = new JMenu("About");
+        JMenuItem versionMenuItem = new JMenuItem("Version");
+        JMenuItem developerMenuItem = new JMenuItem("Development");
+        aboutMenu.add(versionMenuItem);
+        aboutMenu.add(developerMenuItem);        
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(fileMenu);
         JMenuItem padding = new JMenuItem();
         padding.setEnabled(false);
+        menuBar.add(aboutMenu);
         menuBar.add(padding);
         // menuBar.add(aboutMenu);
 
@@ -124,9 +125,7 @@ public class Amethyst extends JFrame {
         // add(scrollPane, BorderLayout.SOUTH);
 
         JSplitPane northPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, tablesList, queryTextArea);
-        northPane.setDividerLocation(0.25);
         JSplitPane southPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, northPane, resultTable);
-        southPane.setDividerLocation(0.5);
         add(southPane, BorderLayout.CENTER);
 
         // Configure file error dialog and ok button
@@ -157,7 +156,7 @@ public class Amethyst extends JFrame {
         setVisible(true);
 
         // Attempting to set the divider location before the components are visible doesn't work
-        northPane.setDividerLocation(0.25);
+        northPane.setDividerLocation(0.1);
         // Attempting to set the divider location before the components are visible doesn't work
         southPane.setDividerLocation(0.5);
     }
