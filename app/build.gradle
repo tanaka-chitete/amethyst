@@ -18,9 +18,9 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+    // testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
 
-    // This dependency is used by the application.
+
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
 
     implementation 'com.formdev:flatlaf:1.6.2'
@@ -28,10 +28,10 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'amethyst.main.App'
+    mainClass = 'amethyst.App'
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
+// tasks.named('test') {
+//     // Use JUnit Platform for unit tests.
+//     useJUnitPlatform()
+// }
