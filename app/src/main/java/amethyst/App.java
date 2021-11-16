@@ -6,14 +6,14 @@ import javax.swing.table.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.sql.SQLException;
-import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.*;
 import java.io.File;
 
 public class App extends JFrame {
     private String filename;
 
     public static void main(String[] args) {
-        // FlatDarkLaf.setup();
+        FlatDarkLaf.setup();
         new App();
     }
 
@@ -80,13 +80,14 @@ public class App extends JFrame {
         // Configure data table and associated scroll pane
         JTable resultsTable = new JTable(new DefaultTableModel());
         resultsTable.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        resultsTable.getTableHeader().setFont(new Font("Monospaced", Font.PLAIN, 12));
         JScrollPane scrollPane = new JScrollPane(resultsTable);
         resultsTable.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 
         // Construct split pane with tables list and query area
         JSplitPane northPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, tablesList, queryArea);
         // Construct split pane with above split pane and result table
-        JSplitPane southPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, northPane, resultsTable);
+        JSplitPane southPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, northPane, scrollPane);
 
         // Add above split pane to the center of the screen
         add(southPane, BorderLayout.CENTER);
@@ -100,13 +101,11 @@ public class App extends JFrame {
                 try {
                     File database = fileChooser.getSelectedFile();
                     ListModel<String> tables = DatabaseIO.openDatabase(database.toString());
-                    queryArea.setEnabled(false);
                     executeBtn.setEnabled(false);
                     tablesList.setModel(tables);
                     filename = database.toString();
                 } catch (SQLException e) {
-                    System.out.println("ERROR"); // TODO: Error-handle
-                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Failed to open file", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -116,13 +115,12 @@ public class App extends JFrame {
                 TableModel results = DatabaseIO.executeQuery(filename, queryArea.getText());
                 resultsTable.setModel(results);
             } catch (SQLException e) {
-                System.out.println("ERROR"); // TODO: Error-handle
+                JOptionPane.showMessageDialog(null, "Failed to execute query.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
         tablesList.addListSelectionListener(event -> {
             String query = "SELECT * FROM " + tablesList.getSelectedValue().toString() + ";";
-            queryArea.setEnabled(true);
             queryArea.setText(query);
             executeBtn.setEnabled(true);
         });
