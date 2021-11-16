@@ -24,6 +24,8 @@ dependencies {
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
 
     implementation 'com.formdev:flatlaf:1.6.2'
+
+    implementation 'com.formdev:flatlaf-intellij-themes:1.6.3'
 }
 
 application {

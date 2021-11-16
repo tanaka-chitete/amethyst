@@ -6,14 +6,14 @@ import javax.swing.table.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.sql.SQLException;
-import com.formdev.flatlaf.*;
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import java.io.File;
 
 public class App extends JFrame {
     private String filename;
 
     public static void main(String[] args) {
-        FlatDarkLaf.setup();
+        FlatDarkPurpleIJTheme.setup();
         new App();
     }
 
