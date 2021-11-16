@@ -27,24 +27,14 @@ public class App extends JFrame {
 
         // Construct file menu
         JMenu fileMenu = new JMenu("File");
-        JMenuItem newMenuItem = new JMenuItem("New"); // TODO: Implement
         JMenuItem openMenuItem = new JMenuItem("Open");
-        fileMenu.add(newMenuItem);
-        fileMenu.add(openMenuItem);
-
-        // Construct about menu
-        JMenu aboutMenu = new JMenu("About");
-        JMenuItem versionMenuItem = new JMenuItem("Version");
-        JMenuItem developerMenuItem = new JMenuItem("Development");
-        aboutMenu.add(versionMenuItem);
-        aboutMenu.add(developerMenuItem);        
+        fileMenu.add(openMenuItem);  
 
         // Construct menu bar
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(fileMenu);
         JMenuItem padding = new JMenuItem();
         padding.setEnabled(false);
-        menuBar.add(aboutMenu);
         menuBar.add(padding);
 
         // Construct tool bar
@@ -81,6 +71,7 @@ public class App extends JFrame {
         JTable resultsTable = new JTable(new DefaultTableModel());
         resultsTable.setFont(new Font("Monospaced", Font.PLAIN, 12));
         resultsTable.getTableHeader().setFont(new Font("Monospaced", Font.PLAIN, 12));
+        ((DefaultTableCellRenderer)resultsTable.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.LEFT);
         JScrollPane scrollPane = new JScrollPane(resultsTable);
         resultsTable.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 
