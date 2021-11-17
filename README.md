@@ -44,7 +44,9 @@ SELECT Name, Composer AS Artist FROM tracks WHERE Composer IN ('Soundgarden', 'N
 
 ![image info](./images/image4.png)
 
-6. Exit the application by clicking the exit icon found in the top left corner of the GUI.
+6. Execute other queries using the tables found in `chinook.db` or those found in other databases if you wish!
+
+7. Once finished, exit the application by clicking the exit icon found in the top left corner of the GUI.
 
 ### Restoration
 
